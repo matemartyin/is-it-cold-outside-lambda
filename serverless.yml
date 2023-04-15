@@ -1,0 +1,15 @@
+service: is-it-cold-outside
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-central-1
+functions:
+  app:
+    handler: app.server
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true
